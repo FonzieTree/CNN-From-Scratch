@@ -82,7 +82,7 @@ for i in range(10):
     relu2 = np.maximum(epsilon, relu2)
     relu1 = np.maximum(epsilon, relu1)
     
-    print('Backwork path')
+    print('Backward path')
     # Backpropagation process
     dscores = probs
     dscores[range(batch_size),y] -= 1
