@@ -6,15 +6,12 @@ ytrain = data[:,0]
 xtrain = data[:,1:]/255
 xtrain = xtrain.reshape(-1, 28, 28)
 xtrain[np.argwhere(xtrain==0)] = epsilon
-epoch = 32
 kernel1 = np.random.randn(64, 3, 3)
 kernel2 = np.random.randn(128, 64, 3, 3)
 kernel3 = np.random.randn(256, 128, 3, 3)
 W = 0.01*np.random.randn(256, 10)
 N = xtrain.shape[0]
-batch_size = 200
-reg = 0.001
-lr = 0.5
+
 conv1 = np.zeros((batch_size, 64, 26, 26))    
 pool1 = np.zeros((batch_size, 64, 13, 13))
 relu1 = np.zeros((batch_size, 64, 13, 13))
@@ -33,7 +30,13 @@ dkernel1 = np.zeros((64, 3, 3))
 drelu2 = np.zeros((batch_size, 128, 5, 5))
 drelu1 = np.zeros((batch_size, 64, 13, 13))
 
-for i in range(10):
+# Some parameters
+batch_size = 200
+reg = 0.001
+lr = 0.5
+epoch = 32
+
+for i in range(epoch):
     index = np.array([np.random.randint(0, N) for i in range(batch_size)])
     x = xtrain[index, :, :]
     y = ytrain[index]
