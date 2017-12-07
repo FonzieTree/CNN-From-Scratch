@@ -1,3 +1,6 @@
+# December 2017 by Shuming Fang. 
+# fangshuming519@gmail.com.
+# https://github.com/FonzieTree
 import numpy as np
 np.random.seed(1)
 epsilon = 1e-8      
